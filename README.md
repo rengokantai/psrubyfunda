@@ -1,4 +1,48 @@
 ####psrubyfunda
+#####classes and objects
+######objects
+most things in ruby are objects, variables are not, var is label for objects so all are refer to same object
+```
+a="a"
+b=a
+a="x"
+b   #x
+a.object_id=b.object_id
+```
+create a real clone.
+```
+b=a.clone()
+```
+######class methods
+@@.cannot access outside the class
+######visibility
+protected method can be called on another object by an object of same class or an objectwith same ancestor if the method was defined in that ancestor
+######equality
+```
+a=b=1
+a.equal?(b)  # true
+a=1
+b=1
+a.equal?(b)  #false
+a==b  #true
+```
+```
+a=Class.new()
+b=Class.new()
+a.equal?(b)  #false
+a.name==b.name #true
+```
+override equal method
+```
+def ==(other)
+    name==other.name
+end
+```
+So
+```
+a==b #true
+```
+
 #####flow control
 ######looping
 ```
@@ -164,8 +208,25 @@ create array using symbols
 multiply use seperator
 ```
 [1, 3]*","   #[1,3]
+```
+######enumerable
+```
+[1,2,3].reduce(0){|x,y|x+y}
+[1,2,3].select{|x|x.even?}
+```
+two consecutive
+```
+[1,2,3].each_cons(2){|x|p x}  # [1, 2] [2, 3]
+```
+######Hash
+```
+h=Hash.new(0)  #default change to 0, not nil
+```
+######range
+2dot  []
+3dot [)
 
-
+######
 
 
 #####methods in depth
